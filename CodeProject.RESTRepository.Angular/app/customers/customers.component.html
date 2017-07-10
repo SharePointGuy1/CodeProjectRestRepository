@@ -1,0 +1,14 @@
+<div *ngIf="selectedCustomer">
+    <h2>
+        {{selectedCustomer.customerName | uppercase}} is a good customer
+    </h2>
+    <button (click)="gotoDetail()">View Details</button>
+</div>
+<h1>{{title}}</h1>
+<h2>My Customers</h2>
+<ul class="customers">
+    <li *ngFor="let cust of customers" [class.selected]="cust === selectedCustomer" (click)=onSelect(cust)>
+        <span class="badge">{{cust.customerId}}</span> {{cust.customerName}} Phone: <span>{{cust.phoneNumber}}</span>
+    </li>
+</ul>
+<!--<my-customer-detail [customer]="selectedCustomer"></my-customer-detail>-->

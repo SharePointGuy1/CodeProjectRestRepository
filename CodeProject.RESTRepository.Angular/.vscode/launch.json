@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Firefox-Debug",
+            "type": "firefox",
+            "request": "launch",
+            "runtimeExecutable": "/Applications/FirefoxDeveloperEdition.app/Contents/MacOS/firefox",
+            "port": 3000,
+            "program": "$(workspaceRoot)/index.html",
+            "profileDir": "$(workspaceRoot)/.firefoxProfile",
+            "stopOnEntry": false
+        }
+    ]
+}

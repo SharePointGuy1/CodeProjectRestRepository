@@ -1,0 +1,46 @@
+<div class='container'>
+    <div [hidden]="submitted">
+        <h1>Customer Form</h1>
+        <form *ngIf="active" (ngSubmit)="onSubmit()" #customerForm="ngForm">
+            <div class="form-group">
+                <label for="customerId">Customer Id</label>
+                <input type="text" class="form-control" id="customerId" required [{ngModel}]="model.customerId" name="customerId" #customerId="ngModel">
+                <div [hidden]="customerId.valid || customerId.pristine" class="alert alert-danger">
+                    Customer Id is required
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="customerName">Customer Name</label>
+                <input type="text" class="form-control" id="customerName" required [{ngModel}]="model.customerName" name="customerName" #customerName="ngModel">
+                <div [hidden]="customerName.valid || customerName.pristine" class="alert alert-danger">
+                    Customer Name is required
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="text" class="form-control" id="phoneNumber" required [{ngModel}]="model.phoneNumber" name="phoneNumber" #phoneNumber="ngModel">
+                <div [hidden]="phoneNumber.valid || phoneNumber.pristine" class="alert alert-danger">
+                    Phone Number is required
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div [hidden]="!submitted">
+    <h2>You submitted the following</h2>
+    <div class="row">
+        <div class="col-xs-3">Customer Name</div>
+        <div class="col-xs-9 pull-left">{{model.customerName}}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">Customer Name</div>
+        <div class="col-xs-9 pull-left">{{model.accountOpenedDate}}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">phoneNumber </div>
+        <div class="col-xs-9 pull-left">{{model.phoneNumber}}</div>
+    </div>
+    <br>
+    <button class="btn btn-default" (click)="submitted=false">Edit</button>
+</div>
+</div>
